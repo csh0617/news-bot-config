@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>봇 설정</title>
+</head>
+<body>
+    <h2>⚙️ 텔레그램 설정</h2>
+    <form method="POST">
+        텔레그램 봇 토큰: <input type="text" name="telegram_token" value="{{ config.telegram_token }}" required><br>
+        전송 간격 (초): <input type="number" name="interval" value="{{ config.interval }}" required><br>
+        <button type="submit">저장</button>
+    </form>
+    <br><a href="/">← 사용자 관리로 돌아가기</a>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>사용자별 뉴스 키워드 관리</title>
+</head>
+<body>
+    <h2>📌 사용자 키워드 등록</h2>
+    <form method="POST">
+        사용자 이름: <input type="text" name="user" required><br>
+        Chat ID: <input type="text" name="chat_id" required><br>
+        키워드 추가: <input type="text" name="keyword" required>
+        <button type="submit">등록/추가</button>
+    </form>
+    <h3>🗂 등록된 사용자 및 키워드</h3>
+    {% for u in users %}
+        <strong>{{ u.user }} (chat_id: {{ u.chat_id }})</strong>
+        <ul>
+        {% for kw in u.keywords %}
+            <li>
+                {{ kw }}
+                <form method="POST" action="/delete" style="display:inline;">
+                    <input type="hidden" name="user" value="{{ u.user }}">
+                    <input type="hidden" name="keyword" value="{{ kw }}">
+                    <button type="submit">❌ 삭제</button>
+                </form>
+            </li>
+        {% endfor %}
+        </ul>
+    {% endfor %}
+    <br><a href="/settings">⚙️ 설정 페이지로 이동</a>
+</body>
+</html>
