@@ -1,15 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-    <title>봇 설정</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>봇 설정</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-    <h2>⚙️ 텔레그램 설정</h2>
+<body class="bg-light">
+  <div class="container py-4">
+    <h2 class="mb-4">⚙️ 텔레그램 봇 설정</h2>
     <form method="POST">
-        텔레그램 봇 토큰: <input type="text" name="telegram_token" value="{{ config.telegram_token }}" required><br>
-        전송 간격 (초): <input type="number" name="interval" value="{{ config.interval }}" required><br>
-        <button type="submit">저장</button>
+      <div class="mb-3">
+        <label for="telegram_token" class="form-label">텔레그램 봇 토큰</label>
+        <input type="text" class="form-control" id="telegram_token" name="telegram_token" value="{{ config.telegram_token }}" required>
+      </div>
+      <div class="mb-3">
+        <label for="interval" class="form-label">전송 간격 (초)</label>
+        <input type="number" class="form-control" id="interval" name="interval" value="{{ config.interval }}" required>
+      </div>
+      <button type="submit" class="btn btn-primary w-100">저장</button>
     </form>
-    <br><a href="/">← 사용자 관리로 돌아가기</a>
+    <div class="mt-3 text-end">
+      <a href="/" class="btn btn-secondary">← 사용자 관리로 돌아가기</a>
+    </div>
+  </div>
 </body>
 </html>
